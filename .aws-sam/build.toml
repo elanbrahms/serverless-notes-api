@@ -27,8 +27,8 @@ manifest_hash = ""
 packagetype = "Zip"
 functions = ["DeleteNoteFunction"]
 
-[function_build_definitions.3c2a6ac1-7425-4798-95fa-f6158e8afebf]
-codeuri = "C:\\Users\\elan_\\serverless-notes-api\\hello_world"
+[function_build_definitions.5757f7d7-4d2a-4090-ab9c-6c24700f3b28]
+codeuri = "C:\\Users\\elan_\\serverless-notes-api\\notes_function"
 runtime = "python3.14"
 architecture = "x86_64"
 handler = "app.lambda_handler"

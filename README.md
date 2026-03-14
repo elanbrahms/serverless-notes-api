@@ -64,6 +64,13 @@
 
 ##### sam deploy
 
+
+
+
+# \## Monitoring
+
+##### AWS CloudWatch logs were used to troubleshoot Lambda execution and validate API behavior during testing.
+
 # 
 
 # \## What I Learned
@@ -80,5 +87,5 @@
 
 # \## Architecture Diagram
 
-# !\[Architecture](AWS serverless API architecture.png)
+# !\[Architecture](AWS\_serverless\_API\_architecture.png)
 

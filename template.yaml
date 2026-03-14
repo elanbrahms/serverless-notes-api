@@ -24,7 +24,7 @@ Resources:
   CreateNoteFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: hello_world/
+      CodeUri: notes_function/
       Handler: app.lambda_handler
       Policies:
         - DynamoDBCrudPolicy:
