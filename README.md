@@ -1,8 +1,8 @@
-# **# Serverless Notes API**
+# **Serverless Notes API**
 
 # 
 
-# **## Overview**
+# **Overview**
 
 # **A serverless REST API built with \*\*AWS Lambda\*\*, \*\*Amazon API Gateway\*\*, \*\*Amazon DynamoDB\*\*, and \*\*AWS SAM\*\*.**  
 
@@ -14,7 +14,7 @@
 
 # 
 
-# **## Features**
+# **Features**
 
 # 
 
@@ -34,7 +34,7 @@
 
 # 
 
-# **## Architecture**
+# **Architecture**
 
 # 
 
@@ -46,7 +46,7 @@
 
 # 
 
-# **## AWS Services Used**
+# **AWS Services Used**
 
 # 
 
@@ -68,7 +68,7 @@
 
 # 
 
-# **## Architecture Explanation**
+# **Architecture Explanation**
 
 # 
 
@@ -84,7 +84,7 @@
 
 # 
 
-# **## Request Flow**
+# **Request Flow**
 
 # 
 
@@ -104,7 +104,7 @@
 
 # 
 
-# **## API Endpoints**
+# **API Endpoints**
 
 # 
 
@@ -182,7 +182,7 @@
 
 # 
 
-# **## Monitoring**
+# **Monitoring**
 
 # 
 
@@ -194,7 +194,7 @@
 
 # 
 
-# **## What I Learned**
+# **What I Learned**
 
 # 
 
@@ -214,7 +214,7 @@
 
 # 
 
-# **## Architecture Diagram**
+# **Architecture Diagram**
 
 # 
 
