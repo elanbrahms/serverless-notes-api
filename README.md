@@ -1,222 +1,178 @@
-# **Serverless Notes API**
+# Serverless Notes API
 
-# 
+## Overview
 
-# **Overview**
+The **Serverless Notes API** is a REST API built on AWS that supports
+full CRUD operations for notes.  
+It uses **Amazon API Gateway** to expose HTTP endpoints, **AWS Lambda**
+to run backend logic, and **Amazon DynamoDB** to store note data.
 
-# **A serverless REST API built with \*\*AWS Lambda\*\*, \*\*Amazon API Gateway\*\*, \*\*Amazon DynamoDB\*\*, and \*\*AWS SAM\*\*.**  
+Infrastructure is deployed using **AWS SAM**, demonstrating how to build
+and manage serverless applications with Infrastructure as Code.
 
-# **The application supports full \*\*CRUD operations\*\* for managing notes and demonstrates how to build and deploy a serverless backend using Infrastructure as Code.**
+\---
 
-# 
+## Features
 
-# **---**
+* Create notes
+* Retrieve notes by ID
+* Update note content
+* Delete notes
+* Fully serverless backend architecture
 
-# 
+\---
 
-# **Features**
+## Architecture
 
-# 
+Client → API Gateway → Lambda → DynamoDB
 
-# **- Create notes using a REST API**
+\---
 
-# **- Retrieve notes by ID**
+## AWS Services Used
 
-# **- Update note content**
+* AWS Lambda
+* Amazon API Gateway
+* Amazon DynamoDB
+* AWS IAM
+* AWS SAM
+* Amazon CloudWatch
 
-# **- Delete notes**
+\---
 
-# **- Fully serverless backend architecture**
+## Architecture Explanation
 
-# 
+The client sends an HTTP request to **Amazon API Gateway**, which routes
+the request to the appropriate **AWS Lambda** function based on the HTTP
+method and endpoint.
 
-# **---**
+Each Lambda function handles a specific operation such as creating,
+retrieving, updating, or deleting a note. The functions interact with
+the **DynamoDB Notes table** to store and retrieve data.
 
-# 
+Execution logs are automatically captured in **Amazon CloudWatch Logs**,
+which helps with monitoring and debugging the application.
 
-# **Architecture**
+\---
 
-# 
+## Request Flow
 
-# **Client → API Gateway → Lambda → DynamoDB**
+1. The client sends a request to an API endpoint\\
+2. API Gateway routes the request to the appropriate Lambda function\\
+3. The Lambda function processes the request\\
+4. DynamoDB stores or retrieves the note data\\
+5. The API returns a JSON response to the client
 
-# 
+\---
 
-# **---**
+# API Endpoints
 
-# 
+### Base URL
 
-# **AWS Services Used**
+&#x20;   https://YOUR\_API\_ID.execute-api.YOUR\_REGION.amazonaws.com/STAGE
 
-# 
 
-# **- AWS Lambda**
 
-# **- Amazon API Gateway**
+Example:
 
-# **- Amazon DynamoDB**
+&#x20;   https://abc123.execute-api.us-east-1.amazonaws.com/Prod
 
-# **- AWS IAM**
 
-# **- AWS SAM**
 
-# **- Amazon CloudWatch**
+\---
 
-# 
+## Create a Note
 
-# **---**
+**POST /notes**
 
-# 
+Creates a new note.
 
-# **Architecture Explanation**
+Example:
 
-# 
+&#x20;   curl -X POST "https://YOUR\_API\_ID.execute-api.YOUR\_REGION.amazonaws.com/STAGE/notes" -H "Content-Type: application/json" -d "{\\"content\\":\\"My first cloud note\\"}"
 
-# **The client sends an HTTP request to \*\*Amazon API Gateway\*\*, which routes the request to the appropriate \*\*AWS Lambda\*\* function based on the HTTP method and endpoint.**
 
-# 
 
-# **Each Lambda function handles a specific operation such as creating, retrieving, updating, or deleting a note. The functions interact with the \*\*DynamoDB Notes table\*\* to store and retrieve data, while \*\*CloudWatch Logs\*\* captures execution logs for monitoring and troubleshooting.**
+\---
 
-# 
+## Retrieve a Note
 
-# **---**
+**GET /notes/{id}**
 
-# 
+Fetches a note using its ID.
 
-# **Request Flow**
+Example:
 
-# 
+&#x20;   curl "https://YOUR\_API\_ID.execute-api.YOUR\_REGION.amazonaws.com/STAGE/notes/YOUR\_NOTE\_ID"
 
-# **1. The client sends a request to an API endpoint**  
 
-# **2. API Gateway routes the request to the correct Lambda function**  
 
-# **3. The Lambda function processes the request**  
+\---
 
-# **4. DynamoDB stores or retrieves the note data**  
+## Update a Note
 
-# **5. The API returns a JSON response to the client**  
+**PUT /notes/{id}**
 
-# 
+Updates the content of an existing note.
 
-# **---**
+Example:
 
-# 
+&#x20;   curl -X PUT "https://YOUR\_API\_ID.execute-api.YOUR\_REGION.amazonaws.com/STAGE/notes/YOUR\_NOTE\_ID" -H "Content-Type: application/json" -d "{\\"content\\":\\"Updated note content\\"}"
 
-# **API Endpoints**
 
-# 
 
-# **Base URL:**
+\---
 
-# 
+## Delete a Note
 
-# 
+**DELETE /notes/{id}**
 
-# **https://YOUR\_API\_ID.execute-api.YOUR\_REGION.amazonaws.com/STAGE**
+Deletes a note by ID.
 
-# 
+Example:
 
-# 
+&#x20;   curl -X DELETE "https://YOUR\_API\_ID.execute-api.YOUR\_REGION.amazonaws.com/STAGE/notes/YOUR\_NOTE\_ID"
 
-# **Example:**
 
-# 
 
-# 
+\---
 
-# **https://abc123.execute-api.us-east-1.amazonaws.com/Prod**
+## Deployment
 
-# 
+Build the application:
 
-# 
+&#x20;   sam build
 
-# **| Method | Endpoint | Description | Example cURL |**
 
-# **|------|------|------|------|**
 
-# **| \*\*POST\*\* | `/notes` | Create a new note | `curl -X POST "https://YOUR\_API\_ID.execute-api.YOUR\_REGION.amazonaws.com/STAGE/notes" -H "Content-Type: application/json" -d "{\\"content\\":\\"My first cloud note\\"}"` |**
+Deploy the infrastructure:
 
-# **| \*\*GET\*\* | `/notes/{id}` | Retrieve a note by ID | `curl "https://YOUR\_API\_ID.execute-api.YOUR\_REGION.amazonaws.com/STAGE/notes/YOUR\_NOTE\_ID"` |**
+&#x20;   sam deploy
 
-# **| \*\*PUT\*\* | `/notes/{id}` | Update an existing note | `curl -X PUT "https://YOUR\_API\_ID.execute-api.YOUR\_REGION.amazonaws.com/STAGE/notes/YOUR\_NOTE\_ID" -H "Content-Type: application/json" -d "{\\"content\\":\\"Updated note content\\"}"` |**
 
-# **| \*\*DELETE\*\* | `/notes/{id}` | Delete a note | `curl -X DELETE "https://YOUR\_API\_ID.execute-api.YOUR\_REGION.amazonaws.com/STAGE/notes/YOUR\_NOTE\_ID"` |**
 
-# 
+\---
 
-# **---**
+## Monitoring
 
-# 
+**Amazon CloudWatch Logs** are used to monitor Lambda execution and
+troubleshoot API behavior during development and testing.
 
-# **## Deployment**
+\---
 
-# 
+## What I Learned
 
-# **Build the application:**
+* How to build a serverless REST API using AWS services\\
+* How Lambda integrates with API Gateway to process HTTP requests\\
+* How DynamoDB stores and retrieves NoSQL data\\
+* How to deploy infrastructure using **AWS SAM**\\
+* How to debug and monitor serverless applications using
+**CloudWatch**
 
-# 
+\---
 
-# 
+## Architecture Diagram
 
-# **sam build**
+AWS\_serverless\_API\_architecture.jpg
 
-# 
 
-# 
-
-# **Deploy the infrastructure:**
-
-# 
-
-# 
-
-# **sam deploy**
-
-# 
-
-# 
-
-# **---**
-
-# 
-
-# **Monitoring**
-
-# 
-
-# **\*\*AWS CloudWatch Logs\*\* were used to monitor Lambda execution and troubleshoot API behavior during development and testing.**
-
-# 
-
-# **---**
-
-# 
-
-# **What I Learned**
-
-# 
-
-# **- How to build a serverless REST API using AWS services**  
-
-# **- How Lambda integrates with API Gateway to process HTTP requests**  
-
-# **- How DynamoDB stores and retrieves NoSQL data**  
-
-# **- How to deploy infrastructure using \*\*AWS SAM (Infrastructure as Code)\*\***  
-
-# **- How to debug and monitor serverless applications using CloudWatch**  
-
-# 
-
-# **---**
-
-# 
-
-# **Architecture Diagram**
-
-# 
-
-# **AWS\_serverless\_API\_architecture.jpg**
 
