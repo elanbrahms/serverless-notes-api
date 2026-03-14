@@ -10,7 +10,7 @@ to run backend logic, and **Amazon DynamoDB** to store note data.
 Infrastructure is deployed using **AWS SAM**, demonstrating how to build
 and manage serverless applications with Infrastructure as Code.
 
-\---
+
 
 ## Features
 
@@ -20,13 +20,13 @@ and manage serverless applications with Infrastructure as Code.
 * Delete notes
 * Fully serverless backend architecture
 
-\---
+
 
 ## Architecture
 
 Client → API Gateway → Lambda → DynamoDB
 
-\---
+
 
 ## AWS Services Used
 
@@ -37,7 +37,7 @@ Client → API Gateway → Lambda → DynamoDB
 * AWS SAM
 * Amazon CloudWatch
 
-\---
+
 
 ## Architecture Explanation
 
@@ -52,7 +52,7 @@ the **DynamoDB Notes table** to store and retrieve data.
 Execution logs are automatically captured in **Amazon CloudWatch Logs**,
 which helps with monitoring and debugging the application.
 
-\---
+
 
 ## Request Flow
 
@@ -78,7 +78,7 @@ Example:
 
 
 
-\---
+
 
 ## Create a Note
 
@@ -92,7 +92,7 @@ Example:
 
 
 
-\---
+
 
 ## Retrieve a Note
 
@@ -106,7 +106,7 @@ Example:
 
 
 
-\---
+
 
 ## Update a Note
 
@@ -120,7 +120,7 @@ Example:
 
 
 
-\---
+
 
 ## Delete a Note
 
@@ -134,7 +134,7 @@ Example:
 
 
 
-\---
+
 
 ## Deployment
 
@@ -150,14 +150,14 @@ Deploy the infrastructure:
 
 
 
-\---
+
 
 ## Monitoring
 
 **Amazon CloudWatch Logs** are used to monitor Lambda execution and
 troubleshoot API behavior during development and testing.
 
-\---
+
 
 ## What I Learned
 
@@ -168,7 +168,7 @@ troubleshoot API behavior during development and testing.
 * How to debug and monitor serverless applications using
 **CloudWatch**
 
-\---
+
 
 ## Architecture Diagram
 
