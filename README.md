@@ -1,22 +1,34 @@
-# Serverless Notes API
+# \## API Endpoints
 
-A serverless REST API built using AWS Lambda, API Gateway, and DynamoDB.
+# 
 
-## Architecture
+# \- POST /notes
 
-Client → API Gateway → Lambda → DynamoDB
+# \- GET /notes/{id}
 
-## Tech Stack
+# \- PUT /notes/{id}
 
-- AWS Lambda
-- API Gateway
-- DynamoDB
-- AWS SAM
-- Python
+# \- DELETE /notes/{id}
 
-## Features
+# 
 
-- Create notes
-- Retrieve notes
-- Update notes
-- Delete notes
+# \## Features
+
+# 
+
+# \- Create a note
+
+# \- Retrieve a note by ID
+
+# \- Update note content
+
+# \- Delete a note
+
+# 
+
+# \## Architecture
+
+# 
+
+# Client → API Gateway → Lambda → DynamoDB
+
